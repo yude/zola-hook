@@ -5,7 +5,15 @@
 
 {% block header %}
 <header class="space">
-    <a href="{{ config.base_url }}">&LeftArrow; Home</a>
+    <img src="/images/avatar.jpg" height="100px" width="100%" style="object-fit: cover;" />
+    <a href="/" style="color: inherit; text-decoration: none;"><h1>{{ config.title }}</h1></a>
+    {% if config.extra.links %}
+    <nav class="header-links">
+        {% for link in config.extra.links %}
+        <a href="{{ link.href }}">{{ link.title }}</a>
+        {% endfor %}
+    </nav>
+    {% endif %}
 </header>
 {% endblock header %}
 

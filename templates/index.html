@@ -17,23 +17,20 @@
 <body>
     {% block header %}
     <header class="space">
-        <h1>{{ config.title }}</h1>
+        <img src="/images/avatar.jpg" height="100px" width="100%" style="object-fit: cover;" />
+        <a href="/" style="color: inherit; text-decoration: none;"><h1>{{ config.title }}</h1></a>
         {% set linked_pages = section.pages | filter(attribute="extra.in_header") %}
         {% if config.extra.links or linked_pages %}
         <nav class="header-links">
             {% for link in config.extra.links %}
             <a href="{{ link.href }}">{{ link.title }}</a>
             {% endfor %}
-            {% for page in linked_pages %}
-            <a href="{{ page.permalink }}">{{ page.title }}</a>
-            {% endfor %}
         </nav>
         {% endif %}
     </header>
     {% endblock header %}
     {% block content %}
-    {% set blog = get_section(path="blog/_index.md") %}
-    {% if section.content or blog.pages %}
+    {% if section.content %}
     <main>
         {% if section.content %}
         <div {% if blog.pages %}class="space"{% endif %}>
