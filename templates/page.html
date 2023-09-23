@@ -1,6 +1,8 @@
 {% extends "index.html" %}
 
 {% block title %}{{ config.title }} | {{ page.title }}{% endblock title %}
+{% block meta_ogp_image %}{{ page.extra.ogp_image }}{% endblock meta_ogp_image %}
+{% block meta_url %}{{ page.slug }}{% endblock meta_url %}
 {% block description %}{{ page.description | default(value=config.description) }}{% endblock description %}
 
 {% block header %}

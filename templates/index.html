@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{% block description %}{{ section.description | default(value=config.description) }}{% endblock description %}">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta property="og:title" content="{% block meta_title %}{{ config.title }}{% endblock meta_title %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yude.jp/{% block meta_url %}{% endblock meta_url %}">
+    <meta property="og:image" content="{% block meta_ogp_image %}{{ config.extra.ogp }}{% endblock meta_ogp_image %}">
+    <meta property="og:site_name" content="{{ config.title }}">
+    <meta property="og:locale" content="ja_JP">
     <link rel="icon" href="/images/favicon.ico" />
     {% block extra_head %}
     <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
@@ -20,7 +26,7 @@
     <header class="space">
         <img src="/images/avatar.jpg" height="210px" width="100%" style="object-fit: cover;" />
         <a href="/" style="color: inherit; text-decoration: none;"><h1>{{ config.title }}</h1></a>
-        {% set linked_pages = section.pages | filter(attribute="extra.in_header") %}
+
         {% if config.extra.links or linked_pages %}
         <nav class="header-links">
             {% for link in config.extra.links %}
