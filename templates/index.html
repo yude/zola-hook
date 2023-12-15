@@ -11,7 +11,7 @@
     <meta property="og:image" content="{% block meta_ogp_image %}{{ config.extra.ogp }}{% endblock meta_ogp_image %}">
     <meta property="og:site_name" content="{{ config.title }}">
     <meta property="og:locale" content="ja_JP">
-    <link rel="icon" href="/images/favicon.ico" />
+    <link rel="icon" href="/images/favicon.ico">
     {% block extra_head %}
     <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
     {% endblock extra_head %}
@@ -32,7 +32,7 @@
 <body>
     {% block header %}
     <header class="space">
-        <img src="/images/avatar.webp" style="object-fit: cover; height: 210px; width: 100%" alt="yude.jp header" />
+        <img src="/images/avatar.webp" style="object-fit: cover; height: 210px; width: 100%" alt="yude.jp header">
         <a href="/" style="color: inherit; text-decoration: none;"><h1>{{ config.title }}</h1></a>
 
         {% if config.extra.links or linked_pages %}
