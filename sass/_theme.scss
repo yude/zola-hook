@@ -18,7 +18,9 @@ $accent-dark: #959bf0;
         color: $secondary;
     }
 
-    a, a:link, a:visited {
+    a,
+    a:link,
+    a:visited {
         color: $accent;
     }
 
@@ -43,11 +45,14 @@ $accent-dark: #959bf0;
     }
 
     table {
-        th, td {
+
+        th,
+        td {
             border-color: darken($tertiary, 5%);
         }
 
-        thead, tr:nth-child(even) {
+        thead,
+        tr:nth-child(even) {
             background-color: lighten($tertiary, 10%);
         }
     }
@@ -61,7 +66,9 @@ $accent-dark: #959bf0;
         color: $secondary-dark;
     }
 
-    a, a:link, a:visited {
+    a,
+    a:link,
+    a:visited {
         color: $accent-dark;
     }
 
@@ -86,11 +93,14 @@ $accent-dark: #959bf0;
     }
 
     table {
-        th, td {
+
+        th,
+        td {
             border-color: $tertiary-dark;
         }
 
-        thead, tr:nth-child(even) {
+        thead,
+        tr:nth-child(even) {
             background-color: darken($tertiary-dark, 15%);
         }
     }
@@ -110,6 +120,7 @@ $accent-dark: #959bf0;
 
 .dark-mode-buttons {
     position: absolute;
+    display: none;
 
     top: 1em;
     right: 1em;
