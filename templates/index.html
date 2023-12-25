@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{% block description %}{{ section.description | default(value=config.description) }}{% endblock description %}">
+    <meta name="description"
+        content="{% block description %}{{ section.description | default(value=config.description) }}{% endblock description %}">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta property="og:title" content="{% block meta_title %}{{ config.title }}{% endblock meta_title %}">
     <meta property="og:type" content="website">
@@ -25,15 +27,19 @@
     {% endblock twitter_meta %}
     {% block feed_link %}
     {% if config.generate_feed %}
-    <link rel="alternate" type="application/atom+xml" title="Feed" href="{{ get_url(path=config.feed_filename, trailing_slash=false) }}">
+    <link rel="alternate" type="application/atom+xml" title="Feed"
+        href="{{ get_url(path=config.feed_filename, trailing_slash=false) }}">
     {% endif %}
     {% endblock %}
 </head>
+
 <body>
     {% block header %}
     <header class="space">
         <img src="/images/avatar.webp" style="object-fit: cover; height: 210px; width: 100%" alt="yude.jp header">
-        <a href="/" style="color: inherit; text-decoration: none;"><h1>{{ config.title }}</h1></a>
+        <a href="/" style="color: inherit; text-decoration: none;">
+            <h1>{{ config.title }}</h1>
+        </a>
 
         {% if config.extra.links or linked_pages %}
         <nav class="header-links">
@@ -48,7 +54,7 @@
     {% if section.content %}
     <main>
         {% if section.content %}
-        <div {% if blog.pages %}class="space"{% endif %}>
+        <div {% if blog.pages %}class="space" {% endif %}>
             {{ section.content | safe }}
         </div>
         {% endif %}
@@ -65,8 +71,10 @@
     {% endif %}
     {% endblock content %}
     <div class="dark-mode-buttons">
-        <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}" width="24" height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode"></button>
-        <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
+        <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}" width="24"
+                height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode"></button>
+        <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24"
+                height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
     </div>
     <script>
         const cls = document.body.classList;
@@ -79,11 +87,11 @@
             cls.toggle("dark-mode", true);
         }
 
-        document.getElementById("dark-mode-on").addEventListener("click", function(e) {
+        document.getElementById("dark-mode-on").addEventListener("click", function (e) {
             cls.toggle("dark-mode", true);
             sessionStorage.setItem("theme", "dark");
         });
-        document.getElementById("dark-mode-off").addEventListener("click", function(e) {
+        document.getElementById("dark-mode-off").addEventListener("click", function (e) {
             cls.toggle("dark-mode", false);
             sessionStorage.setItem("theme", "light");
         });
@@ -93,4 +101,5 @@
         document.getElementsByClassName('dark-mode-buttons')[0].style.display = 'unset';
     </script>
 </body>
+
 </html>
